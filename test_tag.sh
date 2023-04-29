@@ -31,6 +31,10 @@ echo "HTTP Status: $HTTP_STATUS"
 echo -e "\033[1;4mTesting GET the deleted tag (expecting an error):\033[0m"
 curl -s -X GET $BASE_URL/$NEW_TAG_ID | jq
 
+# Verify deletion against all tags
+echo -e "\033[1;4mTesting GET all tags:\033[0m"
+curl -s -X GET $BASE_URL | jq
+
 
 
 
