@@ -21,6 +21,8 @@ Curl is a command-line tool used to transfer data to and from servers using vari
     
 Note: The `./` preceding the name of the script is important as it tells the terminal to look for the script in the current directory. If you don't include `./`, the terminal will look for the script in your system's PATH directories, which may not include the current directory.
 
+## [Demo Video](https://www.loom.com/share/8386ead7f8e741acaa800f732e53fe78)
+
 ## Expected Output 
 1. When creating a new model, the ID and name should be displayed.
 2. Find the newly made model by ID, the models information should be displayed.
