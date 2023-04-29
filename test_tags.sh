@@ -9,6 +9,10 @@ NEW_TAG=$(curl -s -X POST -H "Content-Type: application/json" -d '{"tag_name": "
 NEW_TAG_ID=$(echo $NEW_TAG | jq '.id')
 echo -e "ID: $NEW_TAG_ID Name: Cool new tag"
 
+# get '/:id' : Get newly made tag by ID
+echo -e "\033[1;4mTesting GET the updated tag:\033[0m"
+curl -s -X GET $BASE_URL/$NEW_TAG_ID | jq
+
 # put /:id' : Update the tag name to Updated tag name
 echo -e "\033[1;4mTesting PUT (update) a tag by ID:\033[0m"
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X PUT -H "Content-Type: application/json" -d '{"tag_name": "Updated Tag Name"}' $BASE_URL/$NEW_TAG_ID)

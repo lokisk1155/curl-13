@@ -9,7 +9,7 @@ NEW_CATEGORY=$(curl -s -X POST -H "Content-Type: application/json" -d '{"categor
 NEW_CATEGORY_ID=$(echo $NEW_CATEGORY | jq '.id')
 echo -e "ID: $NEW_CATEGORY_ID Name: Test Category"
 
-# get '/:id' : Get category by ID
+# get '/:id' : Get newly made category by ID
 echo -e "\033[1;4mTesting GET a specific category by ID:\033[0m"
 curl -s -X GET $BASE_URL/$NEW_CATEGORY_ID | jq
 
