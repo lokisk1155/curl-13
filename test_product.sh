@@ -9,7 +9,7 @@ NEW_PRODUCT=$(curl -s -X POST -H "Content-Type: application/json" -d '{"product_
 NEW_PRODUCT_ID=$(echo $NEW_PRODUCT | jq '.id')
 echo -e "ID: $NEW_PRODUCT_ID Name: Test Product"
 
-# get '/:id' : Get product by ID
+# get '/:id' : Get newly made product by ID
 echo -e "\033[1;4mTesting GET a specific product by ID:\033[0m"
 curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
 
