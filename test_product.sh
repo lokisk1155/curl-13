@@ -18,7 +18,6 @@ echo -e "\033[1;4mTesting PUT (update) a product by ID:\033[0m"
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X PUT -H "Content-Type: application/json" -d '{"product_name": "Updated Test Product"}' $BASE_URL/$NEW_PRODUCT_ID)
 echo "HTTP Status: $HTTP_STATUS"
 
-
 # Get updated product by ID
 echo -e "\033[1;4mTesting GET the updated product:\033[0m"
 curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
