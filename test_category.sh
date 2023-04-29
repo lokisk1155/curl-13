@@ -45,3 +45,32 @@ curl -s -X GET $BASE_URL | jq '.[] | {id: .id, category_name: .category_name, pr
 
 
 
+
+
+# Test GET all products
+echo -e "\033[1;4mTesting GET all products:\033[0m"
+curl -s -X GET $BASE_URL | jq
+
+
+
+# Verify deletion against all products
+echo -e "\033[1;4mTesting GET all products:\033[0m"
+curl -s -X GET $BASE_URL | jq
+
+# Get deleted product by ID (expect an error)
+echo -e "\033[1;4mTesting GET the deleted product (expecting an error):\033[0m"
+curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
+
+# Get updated product by ID
+echo -e "\033[1;4mTesting GET the updated product:\033[0m"
+curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
+
+# Test DELETE a product by ID
+echo -e "\033[1;4mTesting DELETE a product by ID:\033[0m"
+DELETED_PRODUCT=$(curl -s -X DELETE $BASE_URL/$NEW_PRODUCT_ID)
+echo $DELETED_PRODUCT | jq
+
+# Update the product information
+echo -e "\033[1;4mTesting PUT (update) a product by ID:\033[0m"
+UPDATED_PRODUCT=$(curl -s -X PUT -H "Content-Type: application/json" -d '{"product_name": "Updated Test Product", "price": 20, "stock": 10, "category_id": 1, "tagIds": [1, 2]}' $BASE_URL/$NEW_PRODUCT_ID)
+echo $UPDATED_PRODUCT | jq
