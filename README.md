@@ -19,20 +19,5 @@ Curl is a command-line tool used to transfer data to and from servers using vari
     ./tags.sh 
     ./products.sh
     ```
-    
-Note: The `./` preceding the name of the script is important as it tells the terminal to look for the script in the current directory. If you don't include `./`, the terminal will look for the script in your system's PATH directories, which may not include the current directory.
-
-## Expected Output Pattern
-
-1. When creating a new model, the ID and name should be displayed.
-2. Find the newly made model by ID, the models information should be displayed.
-3. Update the model, the HTTP status should be displayed.
-4. Find updated model, the updated models information should be displayed.
-5. Delete the updated model, the deleted category ID should be displayed.
-6. Try to find the deleted model using ID, an error should be displayed.
-7. Get all instances, for manual verification if needed.
-
-
-
 
 
