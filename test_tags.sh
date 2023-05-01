@@ -24,7 +24,6 @@ curl -s -X GET $BASE_URL/$NEW_TAG_ID | jq
 
 # delete '/:id' : Delete a tag by ID
 echo -e "\033[1;4mTesting DELETE a tag by ID:\033[0m"
-TAG_ID=1 # Replace with an existing tag ID
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE $BASE_URL/$NEW_TAG_ID)
 echo "HTTP Status: $HTTP_STATUS"
 
