@@ -24,8 +24,8 @@ curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
 
 # delete '/:id' : Delete product by ID
 echo -e "\033[1;4mTesting DELETE a product by ID:\033[0m"
-DELETED_PRODUCT=$(curl -s -X DELETE $BASE_URL/$NEW_PRODUCT_ID)
-echo $NEW_PRODUCT_ID | jq
+HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE $BASE_URL/$NEW_PRODUCT_ID)
+echo "HTTP Status: $HTTP_STATUS"
 
 # get '/:id' : expect an error : Get deleted product by ID 
 echo -e "\033[1;4mTesting GET the deleted product (expecting an error):\033[0m"
