@@ -24,8 +24,8 @@ curl -s -X GET $BASE_URL/$NEW_CATEGORY_ID | jq
 
 # delete '/:id' : Delete a category by ID
 echo -e "\033[1;4mTesting DELETE a category by ID:\033[0m"
-DELETED_CATEGORY=$(curl -s -X DELETE $BASE_URL/$NEW_CATEGORY_ID)
-echo $NEW_CATEGORY_ID | jq
+HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE $BASE_URL/$NEW_CATEGORY_ID)
+echo "HTTP Status: $HTTP_STATUS"
 
 # get '/:id' : expect an error : Get deleted category by ID 
 echo -e "\033[1;4mTesting GET the deleted category (expecting an error):\033[0m"
