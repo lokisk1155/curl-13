@@ -36,6 +36,3 @@ echo -e "\033[1;4mTesting GET all tags:\033[0m"
 curl -s -X GET $BASE_URL | jq
 
 
-
-
-
