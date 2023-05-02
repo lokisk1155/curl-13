@@ -23,15 +23,15 @@ NEW_PRODUCT_ID=$(echo $NEW_PRODUCT | jq '.id')
 echo -e "ID: $NEW_PRODUCT_ID Name: Test Product"
 
 if [ -n "$NEW_PRODUCT_ID" ]; then
-  # GET '/:id' : Get newly made product by ID
-  test_name "Testing GET a specific product by ID"
-  curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
+    # GET '/:id' : Get newly made product by ID
+    test_name "Testing GET a specific product by ID"
+    curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
 
-  # PUT /:id' : Update the product name to Updated Test Product
-  test_name "Testing PUT (update) a product by ID"
-  HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X PUT -H "Content-Type: application/json" \
+    # PUT /:id' : Update the product name to Updated Test Product
+    test_name "Testing PUT (update) a product by ID"
+    HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X PUT -H "Content-Type: application/json" \
     -d '{"product_name": "Updated Test Product"}' $BASE_URL/$NEW_PRODUCT_ID)
-  echo "HTTP Status: $HTTP_STATUS"
+    echo "HTTP Status: $HTTP_STATUS"
 
     # GET '/:id' : Get updated product by ID
     test_name "Testing GET the updated product"
@@ -43,11 +43,11 @@ if [ -n "$NEW_PRODUCT_ID" ]; then
     echo "HTTP Status: $HTTP_STATUS"
 
     if is_success $HTTP_STATUS; then
-      # GET '/:id' : Expect an error : Get deleted product by ID
-      test_name "Testing GET the deleted product (expecting an error)"
-      curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
+        # GET '/:id' : Expect an error : Get deleted product by ID
+        test_name "Testing GET the deleted product (expecting an error)"
+        curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
     else
-      echo "Delete request caused an error"
+        echo "Delete request caused an error"
     fi
 else
   echo "Post request caused an error"
