@@ -15,17 +15,17 @@ function is_success() {
 }
 
 # POST '/' : Create new product
+test_name "Testing POST a new product"
 NEW_PRODUCT=$(curl -s -X POST -H "Content-Type: application/json" \
-  -d '{"product_name": "Test Product", "price": 10, "stock": 5, "category_id": 1}' \ $BASE_URL)
-# if response contains a key of 'data', return the key's value
-NEW_PRODUCT_DATA=$(echo $NEW_PRODUCT | jq -r 'if has("data") then .data else . end')
+  -d '{"product_name": "Test Product", "price": 10, "stock": 5, "category_id": 1}' \
+  $BASE_URL)
 NEW_PRODUCT_ID=$(echo $NEW_PRODUCT | jq '.id')
 echo -e "ID: $NEW_PRODUCT_ID Name: Test Product"
 
 if [ -n "$NEW_PRODUCT_ID" ]; then
     # GET '/:id' : Get newly made product by ID
-    test_name "Testing GET a specific product by ID"
-    curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
+  test_name "Testing GET a specific product by ID"
+  curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
 
     # PUT /:id' : Update the product name to Updated Test Product
     test_name "Testing PUT (update) a product by ID"
@@ -43,11 +43,11 @@ if [ -n "$NEW_PRODUCT_ID" ]; then
     echo "HTTP Status: $HTTP_STATUS"
 
     if is_success $HTTP_STATUS; then
-        # GET '/:id' : Expect an error : Get deleted product by ID
-        test_name "Testing GET the deleted product (expecting an error)"
-        curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
+      # GET '/:id' : Expect an error : Get deleted product by ID
+      test_name "Testing GET the deleted product (expecting an error)"
+      curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
     else
-        echo "Delete request caused an error"
+      echo "Delete request caused an error"
     fi
 else
   echo "Post request caused an error"
