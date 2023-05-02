@@ -3,6 +3,17 @@
 # base url endpoint for this file
 BASE_URL="http://localhost:3001/api/tags"
 
+# Function to display test name
+function test_name() {
+  echo -e "\033[1;4m$1:\033[0m"
+}
+
+# Function to check if a given HTTP status indicates success
+function is_success() {
+  local STATUS="$1"
+  [[ $STATUS -eq 200 ]] || [[ $STATUS -eq 201 ]] || [[ $STATUS -eq 204 ]]
+}
+
 # post '/' : Create new tag
 echo -e "\033[1;4mTesting POST a new tag:\033[0m"
 NEW_TAG=$(curl -s -X POST -H "Content-Type: application/json" -d '{"tag_name": "New Tag"}' $BASE_URL)
