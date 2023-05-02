@@ -24,8 +24,8 @@ echo -e "ID: $NEW_PRODUCT_ID Name: Test Product"
 
 if [ -n "$NEW_PRODUCT_ID" ]; then
     # GET '/:id' : Get newly made product by ID
-  test_name "Testing GET a specific product by ID"
-  curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
+    test_name "Testing GET a specific product by ID"
+    curl -s -X GET $BASE_URL/$NEW_PRODUCT_ID | jq
 
     # PUT /:id' : Update the product name to Updated Test Product
     test_name "Testing PUT (update) a product by ID"
