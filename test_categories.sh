@@ -17,6 +17,7 @@ function is_success() {
 # post '/' : Create new category
 echo -e "\033[1;4mTesting POST a new category:\033[0m"
 NEW_CATEGORY=$(curl -s -X POST -H "Content-Type: application/json" -d '{"category_name": "Test Category"}' $BASE_URL)
+# if response contains a key of 'data', return the key's value
 NEW_CATEGORY_DATA=$(echo $NEW_CATEGORY | jq -r 'if has("data") then .data else . end')
 NEW_CATEGORY_ID=$(echo $NEW_CATEGORY_DATA | jq '.id')
 echo -e "ID: $NEW_CATEGORY_ID Name: Test Category"

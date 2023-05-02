@@ -16,8 +16,8 @@ function is_success() {
 
 # POST '/' : Create new product
 NEW_PRODUCT=$(curl -s -X POST -H "Content-Type: application/json" \
-  -d '{"product_name": "Test Product", "price": 10, "stock": 5, "category_id": 1}' \
-  $BASE_URL)
+  -d '{"product_name": "Test Product", "price": 10, "stock": 5, "category_id": 1}' \ $BASE_URL)
+# if response contains a key of 'data', return the key's value
 NEW_PRODUCT_DATA=$(echo $NEW_PRODUCT | jq -r 'if has("data") then .data else . end')
 NEW_PRODUCT_ID=$(echo $NEW_PRODUCT | jq '.id')
 echo -e "ID: $NEW_PRODUCT_ID Name: Test Product"
