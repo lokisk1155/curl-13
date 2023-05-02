@@ -6,7 +6,8 @@ BASE_URL="http://localhost:3001/api/tags"
 # post '/' : Create new tag
 echo -e "\033[1;4mTesting POST a new tag:\033[0m"
 NEW_TAG=$(curl -s -X POST -H "Content-Type: application/json" -d '{"tag_name": "New Tag"}' $BASE_URL)
-NEW_TAG_ID=$(echo $NEW_TAG | jq '.id')
+NEW_TAG_DATA=$(echo $NEW_TAG | jq -r 'if has("data") then .data else . end')
+NEW_TAG_ID=$(echo $NEW_TAG_DATA | jq '.id')
 echo -e "ID: $NEW_TAG_ID Name: Cool new tag"
 
 # get '/:id' : Get newly made tag by ID
