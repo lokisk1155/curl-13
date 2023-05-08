@@ -66,13 +66,13 @@ chmod +x test_categories.sh test_products.sh test_tags.sh
 
 If you encounter issues while running the shell scripts, consider the following common errors and their solutions:
 
-1. **Reminder**  all tests will fail if there if an error bubbles up from that endpoint 
+1. **Reminder**: If an error occurs when testing any endpoint, it will cause the test to fail even if the endpoint is functioning correctly. In such cases, carefully review the server logs to find the issue.
 
-1. **Header's Server Error**: If the "get all" test does not return a value, it may be due to multiple responses coming back from the server. Ensure that students are not sending multiple status responses in their code. Often student's will experience this error attempting to res a bad status inside a try block if the response is bad, but they forget to return early so both responses are sent.
+2. **Header's Server Error**: If the "get all" test does not return a value, it may be due to multiple responses coming back from the server. Ensure that students are not sending multiple status responses in their code. Often student's will experience this error attempting to res a bad status inside a try block if the response is bad, but they forget to return early so both responses are sent.
 
-2. **POST route issues**: If all tests fail except for the "get all" test, but the created item is visible in the "get all" results, the issue might lie within the POST route. This is a common problem in the `test_products` script, where students may not use optional chaining on `product.tagIds.length`, leading to an error if `tagIds` is undefined or null.
+3. **POST route issues**: If all tests fail except for the "get all" test, but the created item is visible in the "get all" results, the issue might lie within the POST route. This is a common problem in the `test_products` script, where students may not use optional chaining on `product.tagIds.length`, leading to an error if `tagIds` is undefined or null.
 
-3. **SequelizeServerError**: Students may encounter a `SequelizeServerError` if their ORM methods are incorrect. This issue is often caused by incorrect associations in the Sequelize models. Review the model associations to ensure they are properly set up and correspond to the desired database structure.
+4. **SequelizeServerError**: Students may encounter a `SequelizeServerError` if their ORM methods are incorrect. This issue is often caused by incorrect associations in the Sequelize models. Review the model associations to ensure they are properly set up and correspond to the desired database structure.
 
 If the issue persists, consider revisiting the API implementation and verifying the expected responses and data formats.
 
