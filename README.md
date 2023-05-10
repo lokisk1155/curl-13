@@ -1,6 +1,8 @@
 # Automated Testing for Module 13 with Curl
 
-This repository provides a set of shell scripts for students and teachers to use automated curl routes for testing projects. The test files provided in this repo are designed for an API with the following endpoints for categories, products, and tags:
+Module 13 focuses on building a RESTful API for an e-commerce platform using Node.js, Express, and Sequelize. This API should allow users to perform CRUD operations on categories, products, and tags. To ensure that the API is functioning correctly, this repository provides a set of shell scripts for automated testing using curl.
+
+By following the instructions in this README, you will be able to test your API implementation and troubleshoot any issues that may arise during development.
 
 Categories:
 - `POST /api/categories`
@@ -66,7 +68,7 @@ chmod +x test_categories.sh test_products.sh test_tags.sh
 
 If you encounter issues while running the shell scripts, consider the following common errors and their solutions:
 
-1. **Reminder**: If an error occurs when testing any endpoint, it will cause the test to fail even if the endpoint is functioning correctly. In such cases, carefully review the server logs to find the issue.
+1. **Test fails but db change is sucessful**: If an error occurs when testing any endpoint, it will cause the test to fail even if the endpoint is functioning correctly. In such cases, carefully review the server logs to find the issue.
 
 2. **Header's Server Error**: If the "get all" test does not return a value, it may be due to multiple responses coming back from the server. Ensure that students are not sending multiple status responses in their code. Often student's will experience this error attempting to res a bad status inside a try block if the response is bad, but they forget to return early so both responses are sent.
 
