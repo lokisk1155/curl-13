@@ -6,23 +6,13 @@ To help verify that the API is functioning correctly and meets all acceptance cr
 
 By following the instructions in this document, you will be able to test your API implementation and troubleshoot any issues that may arise during development. 
 
-Categories:
-- `POST /api/categories`
-- `GET /api/categories/:id`
-- `PUT /api/categories/:id`
-- `DELETE /api/categories/:id`
+| Categories              | Products               | Tags                  |
+|-------------------------|------------------------|-----------------------|
+| POST /api/categories    | POST /api/products     | POST /api/tags        |
+| GET /api/categories/:id | GET /api/products/:id  | GET /api/tags/:id     |
+| PUT /api/categories/:id | PUT /api/products/:id  | PUT /api/tags/:id     |
+| DELETE /api/categories/:id | DELETE /api/products/:id | DELETE /api/tags/:id |
 
-Products:
-- `POST /api/products`
-- `GET /api/products/:id`
-- `PUT /api/products/:id`
-- `DELETE /api/products/:id`
-
-Tags:
-- `POST /api/tags`
-- `GET /api/tags/:id`
-- `PUT /api/tags/:id`
-- `DELETE /api/tags/:id`
 
 [Quick Demo](https://www.loom.com/share/1b133c22c9c141b3a78214d58e526cf0)
 
