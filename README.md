@@ -13,7 +13,6 @@ By following the instructions in this document, you will be able to test your AP
 | PUT /api/categories/:id | PUT /api/products/:id  | PUT /api/tags/:id     |
 | DELETE /api/categories/:id | DELETE /api/products/:id | DELETE /api/tags/:id |
 
-
 [Quick Demo](https://www.loom.com/share/1b133c22c9c141b3a78214d58e526cf0)
 
 ## Prerequisites
