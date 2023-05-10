@@ -1,8 +1,10 @@
 # Automated Testing for Module 13 with Curl
 
-Module 13 focuses on building a RESTful API for an e-commerce platform using Node.js, Express, and Sequelize. This API should allow users to perform CRUD operations on categories, products, and tags. To ensure that the API is functioning correctly, this repository provides a set of shell scripts for automated testing using curl.
+Module 13 aims to equip full-stack web developers with the skills required to build the back end for an e-commerce platform, a critical component in today's internet retail industry. By modifying starter code, you will create an Express.js API that utilizes Sequelize to interact with a MySQL database, which is a common architecture in e-commerce platforms like Shopify and WooCommerce. This API allows users to perform CRUD operations on categories, products, and tags, ensuring that your e-commerce platform remains competitive.
 
-By following the instructions in this README, you will be able to test your API implementation and troubleshoot any issues that may arise during development.
+To help verify that the API is functioning correctly and meets all acceptance criteria, this document provides a set of shell scripts for automated testing using curl and step-by-step instructions for setting up the testing environment on macOS and Windows operating systems.
+
+By following the instructions in this document, you will be able to test your API implementation and troubleshoot any issues that may arise during development. 
 
 Categories:
 - `POST /api/categories`
@@ -66,24 +68,23 @@ chmod +x test_categories.sh test_products.sh test_tags.sh
 
 ## Troubleshooting Common Errors
 
-If you encounter issues while running the shell scripts, consider the following common errors and their solutions:
+While running the shell scripts, you may encounter some issues. Consider the following common errors and their solutions to help you resolve these problems:
 
-1. **Test fails but db change is sucessful**: If an error occurs when testing any endpoint, it will cause the test to fail even if the endpoint is functioning correctly. In such cases, carefully review the server logs to find the issue.
+1. **Test fails but database change is successful**: Sometimes, an error might occur when testing an endpoint, causing the test to fail even if the endpoint is functioning correctly. In such cases, carefully review the server logs to identify the issu
 
-2. **Header's Server Error**: If the "get all" test does not return a value, it may be due to multiple responses coming back from the server. Ensure that students are not sending multiple status responses in their code. Often student's will experience this error attempting to res a bad status inside a try block if the response is bad, but they forget to return early so both responses are sent.
+2. **Header's Server Error**: If the "get all" test fails to return a value, it could be due to multiple responses coming back from the server. Make sure you're not sending multiple status responses in your code. This error often occurs when trying to send a bad status inside a try block without returning early, resulting in multiple responses being sent.
 
-3. **POST route issues**: If all tests fail except for the "get all" test, but the created item is visible in the "get all" results, the issue might lie within the POST route. This is a common problem in the `test_products` script, where students may not use optional chaining on `product.tagIds.length`, leading to an error if `tagIds` is undefined or null.
+3. **POST route issues**: If all tests fail except for the "get all" test, and the created item is visible in the "get all" results, the issue might lie within the POST route. A common problem in the test_products script is the lack of optional chaining on product.tagIds.length, which can lead to an error if tagIds is undefined or null.
 
-4. **SequelizeServerError**: Students may encounter a `SequelizeServerError` if their ORM methods are incorrect. This issue is often caused by incorrect associations in the Sequelize models. Review the model associations to ensure they are properly set up and correspond to the desired database structure.
-
-If the issue persists, consider revisiting the API implementation and verifying the expected responses and data formats.
+4. **SequelizeServerError**: You may encounter a SequelizeServerError if the ORM methods are incorrect. This issue is often caused by improper associations in the Sequelize models. Review the model associations to ensure they are correctly set up and correspond to the desired database structure.
 
 ### Additional Resources
 
 For more information on API testing, check out the following resources:
 
-- [curl Documentation](https://curl.se/docs/)
-- [Introduction to API Testing: Learn the Basics](https://www.softwaretestinghelp.com/api-testing-tutorial/)
+- [How to use curl](https://www.youtube.com/watch?v=BuEYquQweGo)
+- [What is a RESTful API?](https://www.youtube.com/watch?v=lsMQRaeKNDk)
+- [Using curl better with creator Daniel Stenberg](https://www.youtube.com/watch?v=I6id1Y0YuNk)
 
 ### Contributing and Feedback
 
