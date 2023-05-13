@@ -67,6 +67,8 @@ While running the shell scripts, you may encounter some issues. Consider the fol
 
 4. **SequelizeServerError**: You may encounter a SequelizeServerError if the ORM methods are incorrect. This issue is often caused by improper associations in the Sequelize models. Review the model associations to ensure they are correctly set up and correspond to the desired database structure.
 
+5. **SequelizeEagerLoadingError**: This error is commonly encountered when trying to include the Product or Tag model in a Sequelize query without specifying the "through: ProductTag" parameter. This parameter is critical as it informs Sequelize of the intermediate model to use for establishing the relationship between the Product and Tag models. Without it, Sequelize cannot determine the correct instances to retrieve from the database. Consequently, always ensure to specify the "through" clause when eager loading associated models in Sequelize.
+
 ### Additional Resources
 
 For more information on API testing, check out the following resources:
